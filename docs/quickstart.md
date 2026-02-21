@@ -21,7 +21,3 @@
 ## 5. Pilot adoption
 - Execute `docs/pilot-adoption-checklist.md` in the first target project
 - Capture gaps and feed updates back to `CHANGELOG.md`
-
-## 6. Scale to multiple projects
-- Follow `docs/rollout-plan-3-projects.md`
-- Progress only when each phase exit criteria is met

@@ -21,8 +21,6 @@ Current version: `v0.1.0`
    - `engineering-artifacts/discovery-checklist-template.md`
 4. For first adoption, execute:
    - `docs/pilot-adoption-checklist.md`
-5. For multi-project scaling, execute:
-   - `docs/rollout-plan-3-projects.md`
 
 ## Included Artifacts
 - `implementation-plan-template.md`

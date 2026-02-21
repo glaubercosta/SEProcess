@@ -1,9 +1,5 @@
 # Changelog
 
-## Unreleased
-- Added 3-project rollout plan in `docs/rollout-plan-3-projects.md`.
-- Linked rollout plan from README, quickstart, and migration guide.
-
 ## v0.1.0 - 2026-02-21
 - Initial standalone process product created from Versa engineering artifacts.
 - Added discovery-first templates and quality-gate policy baseline.
