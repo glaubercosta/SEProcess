@@ -1,9 +1,10 @@
-# Engineering Playbook Core
+# SEprocess
 
 Portable, versioned process product for software delivery with discovery-first workflow, quality gates, and reusable templates.
+**Important**: This is a process-only repository. It should not contain software implementation code with other objectives.
 
 ## Version
-Current version: `v0.1.0`
+Current version: `v0.1.1`
 
 ## Repository Structure
 - `core/templates`: reusable project templates.
@@ -16,9 +17,9 @@ Current version: `v0.1.0`
 1. Choose your adapter (`adapters/codex` or `adapters/generic-llm`).
 2. Run bootstrap script from this repo:
    - PowerShell: `./bootstrap/install.ps1 -TargetPath <project-path>`
-3. In target project, start sessions with:
-   - `engineering-artifacts/session-kickoff-template.md`
-   - `engineering-artifacts/discovery-checklist-template.md`
+3. In target project, start sessions with templates from the `seprocess/` folder:
+   - `seprocess/session-kickoff-template.md`
+   - `seprocess/discovery-checklist-template.md`
 4. For first adoption, execute:
    - `docs/pilot-adoption-checklist.md`
 

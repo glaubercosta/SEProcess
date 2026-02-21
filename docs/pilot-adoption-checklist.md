@@ -1,54 +1,42 @@
-# Pilot Adoption Checklist
+# Pilot Adoption Checklist - SEprocess
 
-Use this checklist to adopt `engineering-playbook-core` in the first target project and validate operational fit.
+Use this checklist when adopting the **SEprocess** playbook in a new project for the first time.
 
-## 1) Preparation
-- [ ] Confirm target project owner and technical approver
-- [ ] Define adoption mode: `Forward-Only + Frozen Baseline` or `Full Immediate Enforcement`
-- [ ] Set effective date (`YYYY-MM-DD`)
-- [ ] Define success criteria for pilot (quality, lead time, rework, predictability)
+## 1. Preparation
+- [ ] Ensure target project has a Git repository initialized.
+- [ ] Identify the **Adoption Mode**:
+  - `Forward-Only + Frozen Baseline`: Legacy code is tolerated; new changes must comply.
+  - `Full Immediate Enforcement`: All code must comply immediately.
 
-## 2) Installation
-- [ ] Run bootstrap installer:
-  - `./bootstrap/install.ps1 -TargetPath <target-project-path>`
-- [ ] Confirm `engineering-artifacts/` exists in target project
-- [ ] Confirm all templates and policies were copied
+## 2. Installation
+- [ ] Run the bootstrap script from the SEprocess repository:
+  ```powershell
+  ./bootstrap/install.ps1 -TargetPath <path-to-your-project>
+  ```
+- [ ] Verify that a `seprocess/` folder was created in your project root containing:
+  - `playbook.md`
+  - `quality-gates-template.md`
+  - All `.md` templates.
 
-## 3) Project Binding
-- [ ] Fill project binding block in `engineering-artifacts/playbook.md`
-  - Project name
-  - Mode
-  - Effective date
-  - Legacy handling rule
-- [ ] Fill project binding block in `engineering-artifacts/quality-gates-template.md`
-  - Effective date
-  - Legacy handling
-  - Merge blocking rule
-- [ ] Replace `...` gate commands with runnable project commands
+## 3. Configuration
+- [ ] Open `seprocess/playbook.md` and fill the **Project Binding** block:
+  - Project name.
+  - Adoption mode.
+  - Effective date.
+- [ ] Open `seprocess/quality-gates-template.md` and define the project-specific commands for:
+  - Tests.
+  - Linting.
+  - Duplication check (if available).
+  - Contract validation.
 
-## 4) Team Workflow Enablement
-- [ ] Choose adapter (`adapters/codex` or `adapters/generic-llm`)
-- [ ] Share `SESSION_STARTER.md` with team
-- [ ] Require kickoff artifacts for non-trivial work:
-  - `engineering-artifacts/session-kickoff-template.md`
-  - `engineering-artifacts/discovery-checklist-template.md`
-  - `engineering-artifacts/implementation-plan-sprint-XXX-<topic>.md`
-  - `engineering-artifacts/pr-checklist-template.md`
+## 4. First Session Protocol
+- [ ] Choose an adapter from `SEprocess/adapters/` (e.g., `codex` or `generic-llm`).
+- [ ] Copy the **Session Starter Prompt** and paste it into your AI Assistant's system context or initial message.
+- [ ] Start the first task by creating a session kickoff:
+  - Use `seprocess/session-kickoff-template.md`.
+  - Follow the **Discovery-First** protocol.
 
-## 5) First Execution Cycle
-- [ ] Run one full change using discovery-first + implementation plan + gates
-- [ ] Validate quality gates evidence in PR
-- [ ] Validate docs updates (README/operational docs)
-- [ ] Create checkpoint tag in target project after successful merge
-
-## 6) Pilot Retrospective
-- [ ] Record friction points (missing templates, ambiguous gates, adapter gaps)
-- [ ] Record measurable gains/losses (speed, defects, review quality)
-- [ ] Open improvement backlog items
-- [ ] Update `engineering-playbook-core` templates/policies/adapters as needed
-
-## 7) Exit Criteria
-- [ ] Team can execute process without facilitator
-- [ ] Gate commands are stable in CI
-- [ ] Checklist completion evidence linked in pilot PRs
-- [ ] Decision made: scale to more projects or run second pilot
+## 5. Validation
+- [ ] Create the first **Implementation Plan** for a non-trivial task using `seprocess/implementation-plan-template.md`.
+- [ ] Verify that all Quality Gates pass before the first merge after adoption.
+- [ ] Update project `README.md` to reference the `seprocess/` directory as the process source of truth.

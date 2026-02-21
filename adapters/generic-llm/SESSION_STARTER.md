@@ -13,7 +13,7 @@ Use a discovery-first workflow before proposing implementation. Produce: context
 5. Retrospective updates
 
 ## Required Artifacts Per Non-Trivial Task
-- `engineering-artifacts/session-kickoff-template.md`
-- `engineering-artifacts/discovery-checklist-template.md`
-- `engineering-artifacts/implementation-plan-*.md`
-- `engineering-artifacts/pr-checklist-template.md`
+- `seprocess/session-kickoff-template.md`
+- `seprocess/discovery-checklist-template.md`
+- `seprocess/implementation-plan-*.md`
+- `seprocess/pr-checklist-template.md`

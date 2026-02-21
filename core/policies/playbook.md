@@ -130,11 +130,13 @@ Naming and lifecycle rules:
 - Recommended pattern: `implementation-plan-sprint-XXX-[short-topic].md`.
 - Sprint numbering must be monotonic and never reused.
 
-Use templates:
-- `engineering-artifacts/implementation-plan-template.md`
-- `engineering-artifacts/pr-checklist-template.md`
-- `engineering-artifacts/session-kickoff-template.md`
-- `engineering-artifacts/discovery-checklist-template.md`
+Use templates from the `seprocess/` directory:
+- `seprocess/implementation-plan-template.md`
+- `seprocess/pr-checklist-template.md`
+- `seprocess/session-kickoff-template.md`
+- `seprocess/discovery-checklist-template.md`
+- `seprocess/adr-template.md`
+- `seprocess/spike-header-template.md`
 
 ## Anti-Duplication Standard
 1. Single Source of Truth:

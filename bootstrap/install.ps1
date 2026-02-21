@@ -9,7 +9,7 @@ if (-not (Test-Path $TargetPath)) {
   throw "Target path does not exist: $TargetPath"
 }
 
-$dest = Join-Path $TargetPath 'engineering-artifacts'
+$dest = Join-Path $TargetPath 'seprocess'
 New-Item -ItemType Directory -Path $dest -Force | Out-Null
 
 Copy-Item "$PSScriptRoot\..\core\templates\*.md" $dest -Force
