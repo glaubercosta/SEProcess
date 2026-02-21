@@ -15,12 +15,12 @@ Use this checklist to adopt `engineering-playbook-core` in the first target proj
 - [ ] Confirm all templates and policies were copied
 
 ## 3) Project Binding
-- [ ] Fill project binding block in `playbook.md`
+- [ ] Fill project binding block in `engineering-artifacts/playbook.md`
   - Project name
   - Mode
   - Effective date
   - Legacy handling rule
-- [ ] Fill project binding block in `quality-gates-template.md`
+- [ ] Fill project binding block in `engineering-artifacts/quality-gates-template.md`
   - Effective date
   - Legacy handling
   - Merge blocking rule
@@ -30,10 +30,10 @@ Use this checklist to adopt `engineering-playbook-core` in the first target proj
 - [ ] Choose adapter (`adapters/codex` or `adapters/generic-llm`)
 - [ ] Share `SESSION_STARTER.md` with team
 - [ ] Require kickoff artifacts for non-trivial work:
-  - `session-kickoff-template.md`
-  - `discovery-checklist-template.md`
-  - `implementation-plan-sprint-XXX-<topic>.md`
-  - `pr-checklist-template.md`
+  - `engineering-artifacts/session-kickoff-template.md`
+  - `engineering-artifacts/discovery-checklist-template.md`
+  - `engineering-artifacts/implementation-plan-sprint-XXX-<topic>.md`
+  - `engineering-artifacts/pr-checklist-template.md`
 
 ## 5) First Execution Cycle
 - [ ] Run one full change using discovery-first + implementation plan + gates

@@ -36,3 +36,9 @@ Current version: `v0.1.0`
 - Semantic versioning for process changes.
 - Changelog required for each release.
 - Adapter compatibility updates must be documented.
+
+## GitHub Readiness Checklist
+- Configure remote before first push: `git remote add origin <repo-url>`
+- Ensure default branch policy is defined (`main` or `master`) and protected in GitHub settings.
+- Keep versions synchronized across `README.md`, `CHANGELOG.md`, and `playbook.json`.
+- Publish tags for stable playbook versions (`vX.Y.Z`).

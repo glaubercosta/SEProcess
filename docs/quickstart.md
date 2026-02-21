@@ -10,14 +10,14 @@
 - Generic LLM: `adapters/generic-llm/SESSION_STARTER.md`
 
 ## 3. Start workflow
-- Fill `session-kickoff-template.md`
-- Fill `discovery-checklist-template.md`
-- Create `implementation-plan-sprint-XXX-<topic>.md`
+- Fill `engineering-artifacts/session-kickoff-template.md`
+- Fill `engineering-artifacts/discovery-checklist-template.md`
+- Create `engineering-artifacts/implementation-plan-sprint-XXX-<topic>.md`
 
 ## 4. Validate with gates
-- Apply `quality-gates-template.md`
-- Use `pr-checklist-template.md` in each PR
+- Apply `engineering-artifacts/quality-gates-template.md`
+- Use `engineering-artifacts/pr-checklist-template.md` in each PR
 
 ## 5. Pilot adoption
-- Execute `docs/pilot-adoption-checklist.md` in the first target project
+- Execute `docs/pilot-adoption-checklist.md` from this repository in the first target project adoption
 - Capture gaps and feed updates back to `CHANGELOG.md`

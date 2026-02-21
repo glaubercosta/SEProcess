@@ -14,11 +14,17 @@
 - Unknowns (must clarify):
 
 ## 4. Critical Questions (Before Coding)
+For non-trivial work, list at least 10 questions.
 - [ ] Question 1
 - [ ] Question 2
 - [ ] Question 3
 - [ ] Question 4
 - [ ] Question 5
+- [ ] Question 6
+- [ ] Question 7
+- [ ] Question 8
+- [ ] Question 9
+- [ ] Question 10
 
 ## 5. Assumptions Register
 - Assumption:
