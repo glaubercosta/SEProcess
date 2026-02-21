@@ -9,6 +9,7 @@ Migrate non-versioned local artifacts to the standalone `engineering-playbook-co
 3. Keep project-specific overrides minimal and documented.
 4. Track process changes in `CHANGELOG.md` and bump `playbook.json` version.
 5. Run `docs/pilot-adoption-checklist.md` in the first project before scaling rollout.
+6. Use `docs/rollout-plan-3-projects.md` to expand adoption with controlled gates.
 
 ## Compatibility Rule
 If an adapter changes required behavior, update corresponding `adapters/*/SESSION_STARTER.md` and document the impact.
