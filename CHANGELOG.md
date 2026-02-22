@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.2] - 2026-02-21
+### Added
+- **Multi-Stack Starter Kits**: Added `scaffolds/` directory with `python` and `generic` boilerplate.
+- **Continuous QA**: Added "Check on Change" directive to the Playbook.
+- **Token Efficiency**: Added Token KPI reporting to Session DoD and PR checklists.
+
+### Changed
+- **Centralized Configuration**: All project metadata and adoption mode selection is now centralized in `playbook.md`.
+- **Improved Bootstrap**: `install.ps1` now supports `-Stack` parameter to automatically deploy starter kits.
+- Updated templates (`session-kickoff`, `implementation-plan`, `discovery-checklist`) for consistency.
+
+
 ## [0.1.1] - 2026-02-21
 ### Changed
 - **Rebranding**: Renamed product from `engineering-playbook-core` to `SEprocess`.

@@ -52,15 +52,6 @@
 - [ ] [Question]
 - [ ] [Question]
 
-## 4. Adoption Policy
-- Mode for this plan:
-  - [ ] Forward-only with frozen baseline
-  - [ ] Full immediate enforcement
-- Effective date:
-  - [Date]
-- Legacy handling:
-  - [How pre-existing non-conformities are treated]
-
 ## 5. Public Contract Impact
 - Affected public interfaces (API/events/schemas):
   - [List]
@@ -160,6 +151,7 @@ Done Criteria:
   - [ ] Contract diff/changelog
   - [ ] Operational docs updated
   - [ ] Discovery evidence summary (unknowns, assumptions, open risks)
+  - [ ] **Token Efficiency KPI** (Total tokens consumed vs delivery value)
 - Release decision note:
   - [Go/No-Go + rationale]
 

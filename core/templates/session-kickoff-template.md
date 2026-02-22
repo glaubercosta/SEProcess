@@ -54,6 +54,15 @@ For non-trivial work, list at least 10 questions.
 2. [Step]
 3. [Step]
 
+## 8. Environment & Scaffolding
+- **Runtime & Version**: (e.g., Python 3.12, Node 20)
+- **Isolation/Venv**: (e.g., .venv, docker, conda)
+- **Dependency Manifest**: (e.g., requirements.txt, package.json)
+- **Initial Structure**:
+  - [ ] Directory layout defined
+  - [ ] Environment initialized and active
+  - [ ] Manifest file exists
+
 ## 9. Validation Plan
 - Tests:
 - Metrics:
@@ -62,4 +71,5 @@ For non-trivial work, list at least 10 questions.
 ## 10. Session Close
 - What changed:
 - What remains open:
+- **Token Efficiency KPI**: (e.g., Total Tokens / Success outcome)
 - Next checkpoint:

@@ -3,15 +3,11 @@
 This file binds the portable gates from the playbook to repo-specific tools and thresholds.
 Keep it explicit, enforceable, and CI-ready.
 
-## Adoption Mode
-Select one policy mode for the target project:
-- Forward-only with frozen baseline.
-- Full immediate enforcement.
+## Adoption Policy
+This file is bound by the **Project Binding** defined in `seprocess/playbook.md`. 
 
-Project binding block (fill in target project):
-- Effective date: [YYYY-MM-DD]
-- Legacy handling: [tracked as debt | full remediation required]
-- Merge blocking rule: [regressions/new non-compliance only | all non-compliance]
+- **Source of Truth**: `seprocess/playbook.md` (Project Name, Mode, Effective Date).
+- **Merge Blocking Rule**: All gates below must align with the chosen mode (Forward-Only vs Full Enforcement).
 
 ## Lane Policy
 - Production Lane: All gates below are mandatory in PR/CI.

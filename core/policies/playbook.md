@@ -30,11 +30,13 @@ For every session, follow this sequence:
 1. Context scan (current behavior, risks, constraints).
 2. Discovery-first protocol (unknowns, assumptions, critical questions).
 3. Baseline (tests + git status + quality gates state).
-4. Plan (use implementation plan template for non-trivial work).
-5. Build incrementally (small reversible changes).
-6. Validate (tests + gates).
-7. Update docs + plan status.
-8. Commit/tag with recovery point when milestone is reached.
+4. Environment & Scaffolding (ensure runtime, venv, and structure are initialized).
+5. Continuous QA: **Check on Change** (run linter/tests for every modified file during the session).
+6. Plan (use implementation plan template for non-trivial work).
+6. Build incrementally (small reversible changes).
+7. Validate (tests + gates).
+8. Update docs + plan status.
+9. Commit/tag with recovery point when milestone is reached.
 
 ## Discovery-First Protocol (Mandatory Before Coding)
 Before implementation, produce and validate:
@@ -138,6 +140,16 @@ Use templates from the `seprocess/` directory:
 - `seprocess/adr-template.md`
 - `seprocess/spike-header-template.md`
 
+## Scaffolding and Environment Standard
+Before implementation starts, the following must be documented and/or executed:
+- **Runtime Choice**: Explicit version (e.g., Python 3.12, Node 20).
+- **Isolation**: Effective use of virtual environments (`venv`, `conda`), containers (`docker`), or dev-envs.
+- **Dependency Manifest**: Initialized file (`requirements.txt`, `package.json`, `pyproject.toml`).
+- **Standard Scaffolding**: Create the initial directory structure (`src/`, `tests/`, `docs/`) according to the stack's best practices.
+
+Rule: 
+- AI Assistants must not start creating logic files until the environment is confirmed as active and the dependency manifest exists.
+
 ## Anti-Duplication Standard
 1. Single Source of Truth:
 - Shared logic must live in one reusable function/helper/module.
@@ -178,6 +190,7 @@ Reject PR if any:
 - Docs/README not updated when required.
 - Plan/checklist not updated for planned work.
 - CI/gates failing.
+- **Missing Token Efficiency Report** (estimated/actual tokens vs value delivered).
 - New contract drift or missing telemetry on new/modified critical paths.
 - Critical assumptions are undocumented or unvalidated.
 
@@ -231,6 +244,7 @@ A session is considered done when:
 - README/docs are updated when behavior/config/workflow changes.
 - Contract and telemetry requirements are met for changed critical paths.
 - Discovery and assumption evidence are captured for non-trivial scope.
+- **Token Efficiency Report is documented** (outcome vs context cost).
 - Commit/tag strategy is applied for milestone-level changes.
 
 ## Session Starter Prompt (Recommended)

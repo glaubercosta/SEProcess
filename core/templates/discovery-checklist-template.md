@@ -38,6 +38,12 @@ Use this checklist before implementation for non-trivial work.
 - [ ] Contract impact assessed
 - [ ] Observability and rollback approach defined
 
+## Environment Readiness
+- [ ] Runtime and version explicitly defined
+- [ ] Isolation environment initialized and active
+- [ ] Dependency manifest exists and is synchronized
+- [ ] Initial directory structure follows stack best practices
+
 ## Ready-to-Implement Decision
 - [ ] Go: start implementation
 - [ ] Hold: missing critical evidence

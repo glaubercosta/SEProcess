@@ -3,40 +3,42 @@
 Use this checklist when adopting the **SEprocess** playbook in a new project for the first time.
 
 ## 1. Preparation
-- [ ] Ensure target project has a Git repository initialized.
-- [ ] Identify the **Adoption Mode**:
+- [x] Ensure target project has a Git repository initialized.
+- [x] Identify the **Adoption Mode**:
   - `Forward-Only + Frozen Baseline`: Legacy code is tolerated; new changes must comply.
   - `Full Immediate Enforcement`: All code must comply immediately.
 
 ## 2. Installation
-- [ ] Run the bootstrap script from the SEprocess repository:
+- [x] Run the bootstrap script from the SEprocess repository (choose your stack: `python` or `generic`):
   ```powershell
-  ./bootstrap/install.ps1 -TargetPath <path-to-your-project>
+  ./bootstrap/install.ps1 -TargetPath <path-to-your-project> -Stack python
   ```
-- [ ] Verify that a `seprocess/` folder was created in your project root containing:
+- [x] Verify that a `seprocess/` folder was created in your project root containing:
   - `playbook.md`
   - `quality-gates-template.md`
   - All `.md` templates.
 
 ## 3. Configuration
-- [ ] Open `seprocess/playbook.md` and fill the **Project Binding** block:
+- [x] Open `seprocess/playbook.md` and fill the **Project Binding** block. This is the **primary source of truth** for:
   - Project name.
-  - Adoption mode.
+  - Adoption mode (Forward-Only vs Full Enforcement).
   - Effective date.
-- [ ] Open `seprocess/quality-gates-template.md` and define the project-specific commands for:
+- [x] Open `seprocess/quality-gates-template.md` and define the project-specific commands. These tools will enforce the mode selected in the playbook:
   - Tests.
   - Linting.
   - Duplication check (if available).
   - Contract validation.
 
 ## 4. First Session Protocol
-- [ ] Choose an adapter from `SEprocess/adapters/` (e.g., `codex` or `generic-llm`).
-- [ ] Copy the **Session Starter Prompt** and paste it into your AI Assistant's system context or initial message.
-- [ ] Start the first task by creating a session kickoff:
+- [x] Choose an adapter from `SEprocess/adapters/` (e.g., `codex` or `generic-llm`).
+- [x] Copy the **Session Starter Prompt** and paste it into your AI Assistant's system context or initial message.
+- [x] Start the first task by creating a session kickoff:
   - Use `seprocess/session-kickoff-template.md`.
+  - **Define and initialize the development environment** (runtime, venv, scaffolding).
   - Follow the **Discovery-First** protocol.
 
 ## 5. Validation
 - [ ] Create the first **Implementation Plan** for a non-trivial task using `seprocess/implementation-plan-template.md`.
+- [ ] Verify that the development environment is active and following the defined scaffolding.
 - [ ] Verify that all Quality Gates pass before the first merge after adoption.
 - [ ] Update project `README.md` to reference the `seprocess/` directory as the process source of truth.
