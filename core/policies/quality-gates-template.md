@@ -178,6 +178,35 @@ Policy:
 
 ---
 
+### 13) Artifact Existence Gate
+Goal: Ensure kickoff-declared deliverables actually exist as artifacts.
+- Required input:
+  - List of declared deliverables from session kickoff/plan.
+- Validation:
+  - Check each declared file/module exists, or has explicit descoping rationale + owner.
+
+Policy:
+- Session/PR is not complete if declared deliverables are missing without descoping rationale.
+
+---
+
+### 14) Template Hygiene Gate
+Goal: Prevent using template files as final delivery artifacts.
+- Required:
+  - Work artifacts are created from templates (new files), not by filling `*template*` files.
+  - Placeholder markers (for example `[Step]`, `[Question]`, `TEMPLATE_ONLY`) are absent in finalized artifacts.
+- Validation:
+  - Add CI/local checks for changed files under `seprocess/sessions/` (or equivalent work-artifact folder).
+  - Example command (cross-platform):
+    - `python seprocess/scaffold/check-template-hygiene.py`
+  - Optional command (PowerShell):
+    - `./seprocess/scaffold/check-template-hygiene.ps1`
+
+Policy:
+- No merge if finalized session artifacts contain unresolved placeholders or if template files are used as final records.
+
+---
+
 ## Exceptions (Must Be Explicit)
 If any gate is intentionally violated, PR must include:
 - Why needed now
@@ -190,3 +219,4 @@ If any gate is intentionally violated, PR must include:
 - Update this file whenever tools/commands or thresholds change.
 - Keep commands copy-paste runnable.
 - Track legacy gaps as backlog items; do not normalize regressions.
+- Run a **Gate Runnable Audit** on a fixed cadence (quarterly minimum, per sprint in MVP): verify each configured command and artifact path is executable/exists in the current repository.

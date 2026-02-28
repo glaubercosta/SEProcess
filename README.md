@@ -4,7 +4,7 @@ Portable, versioned process product for software delivery with discovery-first w
 **Important**: This is a process-only repository. It should not contain software implementation code with other objectives.
 
 ## Version
-Current version: `v0.1.1`
+Current version: `v0.2.0`
 
 ## Repository Structure
 - `core/templates`: reusable project templates.
@@ -12,10 +12,11 @@ Current version: `v0.1.1`
 - `adapters`: tool/assistant-specific starter prompts and usage mapping.
 - `bootstrap`: scripts to install/sync artifacts into target projects.
 - `docs`: usage and migration docs.
+- `feedbacks`: repository of process improvement suggestions.
 
 ## Quick Start
-1. Choose your adapter (`adapters/codex` or `adapters/generic-llm`).
-2. Run bootstrap script from this repo:
+1. Choose your adapter within your project (`seprocess/adapters/codex` or `seprocess/adapters/generic-llm`).
+2. Paste the **Session Starter Prompt** into your assistant's context.
    - PowerShell: `./bootstrap/install.ps1 -TargetPath <project-path>`
 3. In target project, start sessions with templates from the `seprocess/` folder:
    - `seprocess/session-kickoff-template.md`
@@ -34,8 +35,10 @@ Current version: `v0.1.1`
 - `quality-gates-template.md`
 
 ## Release Discipline
-- Semantic versioning for process changes.
-- Changelog required for each release.
+- SemVer is the official versioning policy for SEprocess (`MAJOR.MINOR.PATCH`).
+- README/docs are updated when behavior/config/workflow changes.
+- **Continuous Improvement**: feedback or suggestions for process improvement are recorded in `feedbacks/improvement-suggestions.md`.
+- Contract and telemetry requirements are met for changed critical paths.
 - Adapter compatibility updates must be documented.
 
 ## GitHub Readiness Checklist

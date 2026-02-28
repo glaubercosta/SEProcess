@@ -1,7 +1,7 @@
 {
   "name": "SEprocess",
-  "version": "0.1.0",
-  "releaseDate": "2026-02-21",
+  "version": "0.2.0",
+  "releaseDate": "2026-02-28",
   "compatibility": {
     "adapters": ["codex", "generic-llm"]
   }

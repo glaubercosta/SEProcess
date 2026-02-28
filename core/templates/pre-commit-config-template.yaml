@@ -1,0 +1,58 @@
+# .pre-commit-config.yaml — SEprocess Quality Gate Template
+# This file is auto-copied to your project root by install.ps1.
+# Run `pre-commit install` to activate hooks.
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+
+# --- Python: Ruff (fast linter + formatter) ---
+# -   repo: https://github.com/astral-sh/ruff-pre-commit
+#     rev: v0.3.0
+#     hooks:
+#     -   id: ruff
+#     -   id: ruff-format
+
+# --- Python: Bandit (security scanner) ---
+# NOTE: bandit must use pass_filenames: false and -r <dir> pattern.
+#       Do NOT add it as a filenames-based hook (causes "unrecognized arguments" error).
+# Gotcha: Bandit flags `assert` in pytest files as B101. This is a false positive.
+#         To suppress only in tests: add `--skip B101` to args IF you are comfortable
+#         with that trade-off. Do NOT add it blindly to production code scans.
+# -   repo: local
+#     hooks:
+#     -   id: bandit
+#         name: Bandit Security Scan
+#         entry: bandit
+#         args: ["-r", "src/", "--severity-level", "medium"]
+#         language: system
+#         pass_filenames: false
+#         always_run: true
+
+# --- Run Tests ---
+-   repo: local
+    hooks:
+    -   id: quality-gates-tests
+        name: Quality Gates - Tests
+        entry: pytest  # Replaced from 'npm test' if -Stack python was used
+        language: system
+        pass_filenames: false
+        always_run: true
+
+# --- Process Hygiene: Session Artifact Templates ---
+-   repo: local
+    hooks:
+    -   id: seprocess-template-hygiene
+        name: SEprocess - Template Hygiene
+        entry: python seprocess/scaffold/check-template-hygiene.py
+        language: system
+        pass_filenames: false
+        always_run: true
+
+# Optional manual alternative (PowerShell):
+# pwsh -NoProfile -ExecutionPolicy Bypass -File seprocess/scaffold/check-template-hygiene.ps1

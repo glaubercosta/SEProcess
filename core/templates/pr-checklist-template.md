@@ -1,5 +1,7 @@
 # PR Checklist (Engineering Playbook v2)
 
+> TEMPLATE_ONLY: copie este arquivo para um checklist de PR do trabalho atual e preencha a cópia. Não preencha o template original.
+
 > Use this checklist for every PR. Delete items that do not apply only when clearly irrelevant.
 
 ## Meta
@@ -31,6 +33,7 @@
 - [ ] Complexity gate satisfied or justified (if configured)
 - [ ] Security baseline satisfied (dependency scan / SAST where configured)
 - [ ] Discovery, assumption traceability, and evaluation gates satisfied (if applicable)
+- [ ] Artifact existence gate satisfied (declared kickoff deliverables exist or were descoped with rationale)
 
 ## Security & Privacy Minimums (Production Lane)
 - [ ] No secrets/tokens committed
@@ -40,6 +43,11 @@
 
 ## Documentation
 - [ ] README updated if behavior/config/workflow changed
+- [ ] README Drift Check confirmed:
+  - [ ] Runtime/versions reflect current stack
+  - [ ] Build/run/test commands are current
+  - [ ] Architecture summary reflects current components
+  - [ ] Changed endpoints/features are documented
 - [ ] Docs include verify + rollback steps (where relevant)
 - [ ] Examples are runnable and current
 

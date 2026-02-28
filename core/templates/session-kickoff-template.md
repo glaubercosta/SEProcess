@@ -1,5 +1,7 @@
 # Session Kickoff Template (Discovery-First)
 
+> TEMPLATE_ONLY: copie este arquivo para um artefato de trabalho (ex.: `seprocess/sessions/session-kickoff-YYYYMMDD-<tema>.md`) e preencha a cópia. Não preencha o template original.
+
 ## 1. Objective
 - What outcome do we need by end of session?
 
@@ -11,7 +13,7 @@
 
 ## 3. Knowns vs Unknowns
 - Knowns (validated):
-- Unknowns (must clarify):
+- [ ] Unknowns (must clarify):
 
 ## 4. Critical Questions (Before Coding)
 For non-trivial work, list at least 10 questions.
@@ -27,7 +29,7 @@ For non-trivial work, list at least 10 questions.
 - [ ] Question 10
 
 ## 5. Assumptions Register
-- Assumption:
+- [ ] Assumption:
   - Owner:
   - Validation method:
   - Validation checkpoint:
@@ -54,6 +56,16 @@ For non-trivial work, list at least 10 questions.
 2. [Step]
 3. [Step]
 
+## 8.1 Declared Deliverables (Kickoff Commitment)
+- [ ] Deliverable path:
+  - Type: [module/file/doc/test]
+  - Acceptance signal:
+  - Owner:
+- [ ] Deliverable path:
+  - Type: [module/file/doc/test]
+  - Acceptance signal:
+  - Owner:
+
 ## 8. Environment & Scaffolding
 - **Runtime & Version**: (e.g., Python 3.12, Node 20)
 - **Isolation/Venv**: (e.g., .venv, docker, conda)
@@ -71,5 +83,13 @@ For non-trivial work, list at least 10 questions.
 ## 10. Session Close
 - What changed:
 - What remains open:
+- Tests executed (command + result):
+- Lint/typecheck executed (command + result):
+- Gate summary (pass/fail + exceptions):
+- Tag/commit reference:
+- Deliverable status (present or descoped with rationale):
 - **Token Efficiency KPI**: (e.g., Total Tokens / Success outcome)
 - Next checkpoint:
+
+> [!IMPORTANT]
+> Todos os itens em **Unknowns** e **Assumptions Register** devem ser 'ticados' ou validados antes do fechamento da sessão de kickoff para fortalecer o gate 'Ready-to-Implement'.

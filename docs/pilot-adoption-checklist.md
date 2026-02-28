@@ -11,12 +11,13 @@ Use this checklist when adopting the **SEprocess** playbook in a new project for
 ## 2. Installation
 - [x] Run the bootstrap script from the SEprocess repository (choose your stack: `python` or `generic`):
   ```powershell
-  ./bootstrap/install.ps1 -TargetPath <path-to-your-project> -Stack python
+  ./bootstrap/install.ps1 -TargetPath <path-to-your-project> -Stack python -RunChecks
   ```
 - [x] Verify that a `seprocess/` folder was created in your project root containing:
   - `playbook.md`
   - `quality-gates-template.md`
   - All `.md` templates.
+- [x] Verify optional smoke checks completed (or were explicitly skipped with rationale).
 
 ## 3. Configuration
 - [x] Open `seprocess/playbook.md` and fill the **Project Binding** block. This is the **primary source of truth** for:
@@ -32,8 +33,9 @@ Use this checklist when adopting the **SEprocess** playbook in a new project for
 ## 4. First Session Protocol
 - [x] Choose an adapter from `SEprocess/adapters/` (e.g., `codex` or `generic-llm`).
 - [x] Copy the **Session Starter Prompt** and paste it into your AI Assistant's system context or initial message.
-- [x] Start the first task by creating a session kickoff:
-  - Use `seprocess/session-kickoff-template.md`.
+- [x] Start the first task by creating a session kickoff artifact from template:
+  - Copy `seprocess/session-kickoff-template.md` to `seprocess/sessions/session-kickoff-YYYYMMDD-<topic>.md` and fill the copy.
+  - Keep `*template*` files unchanged (`TEMPLATE_ONLY`).
   - **Define and initialize the development environment** (runtime, venv, scaffolding).
   - Follow the **Discovery-First** protocol.
 
@@ -41,4 +43,8 @@ Use this checklist when adopting the **SEprocess** playbook in a new project for
 - [ ] Create the first **Implementation Plan** for a non-trivial task using `seprocess/implementation-plan-template.md`.
 - [ ] Verify that the development environment is active and following the defined scaffolding.
 - [ ] Verify that all Quality Gates pass before the first merge after adoption.
+- [ ] Verify artifact existence: all kickoff-declared deliverables exist or are explicitly descoped with rationale.
 - [ ] Update project `README.md` to reference the `seprocess/` directory as the process source of truth.
+- [ ] Run README drift check: runtime, commands, architecture summary, and changed endpoints/features are current.
+- [ ] Initialize the **Continuous Improvement** log in `seprocess/feedbacks/improvement-suggestions.md` to start tracking process friction from Day 1.
+- [ ] Install the **pre-commit** tool in your development environment and initialize hooks using the template.

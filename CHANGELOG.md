@@ -1,5 +1,28 @@
 # Changelog
 
+## Versioning Policy (SemVer)
+SEprocess follows `MAJOR.MINOR.PATCH`:
+- **MAJOR**: incompatible process changes (breaking policy/gate/template behavior requiring migration).
+- **MINOR**: backward-compatible process capabilities (new gates, templates, adapters, or workflow steps).
+- **PATCH**: backward-compatible fixes, clarifications, typo/docs-only corrections, and non-breaking script adjustments.
+
+Decision rule:
+- If adoption in an existing consumer project requires changing established behavior, prefer **MAJOR**.
+- If it adds optional or compatible behavior, use **MINOR**.
+- If it only fixes/clarifies existing behavior without expanding scope, use **PATCH**.
+
+## [0.2.0] - 2026-02-28
+### Added
+- **Template Hygiene Enforcement**: Added cross-platform checker (`check-template-hygiene.py`) in scaffold templates and integrated it into `.pre-commit-config` template.
+- **Artifact Existence Gate**: Added explicit gate to ensure kickoff-declared deliverables exist or are descoped with rationale.
+- **Session Close Evidence Standard**: Added minimum evidence block (tests, lint/typecheck, gate summary, tag/commit, deliverable status).
+- **Bootstrap Smoke Checks**: `install.ps1` now supports optional `-RunChecks` for post-install validation.
+
+### Changed
+- **Template Instantiation Rule**: Standardized `TEMPLATE_ONLY` behavior across playbook, templates, adapters, and onboarding docs.
+- **README Drift Controls**: Expanded PR checklist and adoption docs with explicit README drift confirmations.
+- **Versioning Policy**: Adopted SemVer as official process versioning strategy.
+
 ## [0.1.2] - 2026-02-21
 ### Added
 - **Multi-Stack Starter Kits**: Added `scaffolds/` directory with `python` and `generic` boilerplate.

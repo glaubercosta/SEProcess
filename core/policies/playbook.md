@@ -30,8 +30,9 @@ For every session, follow this sequence:
 1. Context scan (current behavior, risks, constraints).
 2. Discovery-first protocol (unknowns, assumptions, critical questions).
 3. Baseline (tests + git status + quality gates state).
-4. Environment & Scaffolding (ensure runtime, venv, and structure are initialized).
-5. Continuous QA: **Check on Change** (run linter/tests for every modified file during the session).
+4. **AI Proactive Agency**: AI Assistant must proactively suggest checkpointing, tagging, and document synchronization after each milestone or task completion.
+5. Environment & Scaffolding (ensure runtime, venv, and structure are initialized).
+6. Continuous QA: **Check on Change** (run linter/tests for every modified file during the session).
 6. Plan (use implementation plan template for non-trivial work).
 6. Build incrementally (small reversible changes).
 7. Validate (tests + gates).
@@ -126,6 +127,11 @@ Mandatory when work is non-trivial (multi-file change, architecture, reliability
 - Break into phases with checklist.
 - Update checklist status after each validated phase.
 
+Template instantiation rule:
+- Templates under `seprocess/*template*` are **TEMPLATE_ONLY** artifacts and must not be used as session records.
+- For each session, create a new work file copied from the template (for example in `seprocess/sessions/`) and fill the copied file.
+- If a declared deliverable is intentionally descoped, record rationale + owner in the session close evidence.
+
 Naming and lifecycle rules:
 - Every planning effort must generate its own implementation plan instance.
 - Plan file name must include the sprint number in sequential order.
@@ -144,8 +150,12 @@ Use templates from the `seprocess/` directory:
 Before implementation starts, the following must be documented and/or executed:
 - **Runtime Choice**: Explicit version (e.g., Python 3.12, Node 20).
 - **Isolation**: Effective use of virtual environments (`venv`, `conda`), containers (`docker`), or dev-envs.
-- **Dependency Manifest**: Initialized file (`requirements.txt`, `package.json`, `pyproject.toml`).
+- **Dependency Manifest**: Initialized file (e.g., `requirements.txt`, `package.json`, `pyproject.toml`).
+  - **Modern Package Management (Recommended)**: Use `uv` or `poetry` for Python projects to ensure fast, deterministic, and isolated dependency resolution.
 - **Standard Scaffolding**: Create the initial directory structure (`src/`, `tests/`, `docs/`) according to the stack's best practices.
+- **Automated Quality Gates**: Use `pre-commit` to catch linting and test failures before they reach the repository. 
+  - **Requirement**: The `pre-commit` tool must be installed in the development environment (e.g., `uv add pre-commit --dev` or `pip install pre-commit`).
+  - **Configuration**: Use `seprocess/scaffold/pre-commit-config-template.yaml` as a base.
 
 Rule: 
 - AI Assistants must not start creating logic files until the environment is confirmed as active and the dependency manifest exists.
@@ -234,7 +244,27 @@ Checkpoint workflow:
 1. Validate (tests + duplication gate + configured CI-equivalent checks).
 2. Commit focused changes.
 3. Create annotated tag.
-4. Optionally push commit/tag immediately for remote recovery.
+
+## Session Close Evidence Standard
+At session close, record a minimal evidence block in the session artifact:
+- Tests executed (commands + result).
+- Lint/typecheck executed (commands + result).
+- Quality gates summary (pass/fail + exceptions, if any).
+- Tag/commit reference used as recovery point.
+- Declared kickoff deliverables status (present or descoped with rationale).
+
+## Rollback and Recovery Strategy
+If a milestone or task needs to be reverted:
+1. **Identify Checkpoint**: Use `git tag` to list available checkpoints.
+2. **Hard Reset**: Perform `git reset --hard <tag-name>` to return the working directory to that exact state.
+3. **Branching (Risky Changes)**: For experimental work, always create a temporary branch from the last stable checkpoint.
+4. **Validation**: Immediately run Quality Gates after any rollback.
+
+## Continuous Improvement
+To ensure the process evolves with real-world needs, a feedback loop is mandatory:
+- Every session or sprint that reveals a process friction point, missing template, or efficiency bottleneck must be documented.
+- Feedback is recorded in the `feedbacks/improvement-suggestions.md` file (or project-specific equivalent).
+- Process improvements are prioritized in the next process-tuning cycle.
 
 ## Session Definition of Done (DoD)
 A session is considered done when:
@@ -242,8 +272,13 @@ A session is considered done when:
 - No new relevant duplication is introduced.
 - Active implementation plan is updated with validated progress.
 - README/docs are updated when behavior/config/workflow changes.
+- **Continuous Improvement**: any process friction or improvement idea encountered during the session is logged in `feedbacks/improvement-suggestions.md`.
+- **Artifact Sync**: Implementation Plan and Walkthrough are crystallized in `seprocess/sessions/` upon milestone validation.
+- **Kickoff Deliverables Integrity**: declared kickoff deliverables exist as concrete work artifacts, or are explicitly descoped with rationale.
+- **Process Health**: Verify if the Tríade of Documentation (README, ADR, Knowledge Base) is synchronized.
 - Contract and telemetry requirements are met for changed critical paths.
 - Discovery and assumption evidence are captured for non-trivial scope.
+- **Session Close Evidence** is recorded (tests, lint/typecheck, gate summary, tag/commit, deliverable status).
 - **Token Efficiency Report is documented** (outcome vs context cost).
 - Commit/tag strategy is applied for milestone-level changes.
 

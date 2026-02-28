@@ -1,5 +1,7 @@
 # Implementation Plan - Sprint [XXX] - [Title]
 
+> TEMPLATE_ONLY: copie este arquivo para `seprocess/sessions/implementation-plan-sprint-XXX-<topic>.md` (ou equivalente) e preencha a cópia. Não preencha o template original.
+
 ## File Naming Convention
 - Required filename pattern: `implementation-plan-sprint-XXX-[short-topic].md`
 - Example: `implementation-plan-sprint-001-anti-dup-hardening.md`
@@ -161,3 +163,10 @@ Done Criteria:
 
 ## 15. Progress Log
 - [Date] [What was completed + validation evidence]
+
+## 16. Session Close Evidence (Minimum)
+- Tests executed (command + result):
+- Lint/typecheck executed (command + result):
+- Gate summary (pass/fail + exceptions):
+- Tag/commit reference:
+- Kickoff-declared deliverables status (present or descoped with rationale):

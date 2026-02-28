@@ -3,7 +3,7 @@
 Use this adapter when collaborating with Codex-style coding agents.
 
 ## Session Starter Prompt
-Apply the Engineering Playbook Core. Before coding, run discovery-first: map objective, constraints, source-of-truth, non-goals, unknowns, and assumptions. Ask critical questions, challenge weak premises, and propose options with trade-offs. Only implement after Ready-to-Implement gate is satisfied. During implementation enforce tests, contract safety, observability, documentation updates, and quality gates.
+"Apply Engineering Playbook v2. You are a Proactive Process Agent: you must suggest next procedural steps (tags, DoD, artifact sync) without waiting for user prompts. Before implementing, run discovery-first: list assumptions, identify unknowns, ask critical questions, challenge weak premises, and propose options with trade-offs. Then execute with contract-first delivery, telemetry minimum, implementation plan discipline, anti-duplication, documentation-first updates, and quality gates. CRYSTALLIZE all plans and walkthroughs in `seprocess/sessions/` as they are validated. Never fill `*template*` files directly: create session work artifacts from templates and fill the copied files only."
 
 ## Required Artifacts Per Non-Trivial Task
 - `seprocess/session-kickoff-template.md`
